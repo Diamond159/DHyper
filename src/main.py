@@ -130,7 +130,7 @@ def run_experiment(args, n_hidden=None, n_layers=None, dropout=None, n_bases=Non
     all_ans_list_valid = utils.load_all_answers_for_time_filter(data.valid, num_rels, num_nodes, False)
     all_ans_list_r_valid = utils.load_all_answers_for_time_filter(data.valid, num_rels, num_nodes, True)
 
-    model_name = "{}-{}-{}-ly{}-dilate{}-his{}-weight:{}-discount:{}-angle:{}-dp{}|{}|{}|{}-gpu{}"\
+    model_name = "{}-{}-{}-ly{}-dilate{}-his{}-weight{}-discount{}-angle{}-dp{}-{}_{}_{}-gpu{}"\
         .format(args.dataset, args.encoder, args.decoder, args.n_layers, args.dilate_len, args.train_history_len, args.weight, args.discount, args.angle,
                 args.dropout, args.input_dropout, args.hidden_dropout, args.feat_dropout, args.gpu)
     model_state_file = '../models/' + model_name
@@ -366,7 +366,7 @@ if __name__ == '__main__':
 
     # configuration for stat training
 #    parser.add_argument("--n-epochs", type=int, default=500,
-    parser.add_argument("--n-epochs", type=int, default=100,
+    parser.add_argument("--n-epochs", type=int, default=5,
                         help="number of minimum training epochs on each time step")
     parser.add_argument("--lr", type=float, default=0.001,
                       help="learning rate")
